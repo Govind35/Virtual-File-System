@@ -1,3 +1,17 @@
+/*
+ls : to list all the Files
+clear : to clear the console
+open : to open the File
+close : To close the File
+closeall : To close all the opened files
+read : To read the contents of the File
+write : To write contents into file
+stat : To Display information file using name
+fstat : To Display information of file using Discriptor
+truncate : To remove all data from file
+rm : To delete the file
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <io.h>
@@ -86,7 +100,7 @@ int main(int argc, char *argv[])
     char str[80];
     char arr[MAXFILESIZE];
     char *ptr = NULL;
-    char pass[50] = {"3333"};
+    char pass[50] = {"0000"};
     //printf("\nImside main\n");
     ret = Password(pass);
     if (ret == 1)
@@ -96,7 +110,7 @@ int main(int argc, char *argv[])
         while (1)
         {
             fflush(stdin);
-            printf("\nMarvallous VFS :> ");
+            printf("\nFile System :> ");
             strcpy_s(str, 80, "");
             fgets(str, 80, stdin);
             count = sscanf(str, "%s %s %s", command[0], command[1], command[2], command[3]);
@@ -126,7 +140,7 @@ int main(int argc, char *argv[])
                 }
                 else if (_stricmp(command[0], "exit") == 0)
                 {
-                    printf("\nTerminating the Marvallous VFS\n ");
+                    printf("\nTerminating the File System \n ");
                     break;
                 }
                 else
@@ -1290,17 +1304,3 @@ int LseekFile(int fd, int size, int from)
     }
     return 0;
 }
-
-/*
-ls : to list all the Files
-clear : to clear the console
-open : to open the File
-close : To close the File
-closeall : To close all the opened files
-read : To read the contents of the File
-write : To write contents into file
-stat : To Display information file using name
-fstat : To Display information of file using Discriptor
-truncate : To remove all data from file
-rm : To delete the file
-*/
